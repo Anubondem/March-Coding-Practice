@@ -1,0 +1,63 @@
+
+Link to this Challenge:  https://leetcode.com/explore/featured/card/march-leetcoding-challenge-2021/588/week-1-march-1st-march-7th/3660/
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode NodeA=headA;
+        ListNode NodeB=headB;
+        int lengthlist1=0,lengthlist2=0;
+
+        if(NodeA==null || NodeB==null) {
+            return null;
+        }
+
+        //find length of each list
+        //length of list1
+        while(NodeA !=null){
+            lengthlist1++;
+            NodeA=NodeA.next;
+        }
+        //length of list2
+        while(NodeB !=null){
+            lengthlist2++;
+            NodeB=NodeB.next;
+        }
+        //find difference in lengths of list1 and list2
+        int difference=0;
+        ListNode nodeA=headA,nodeB=headB;
+        if(lengthlist1>lengthlist2){
+            difference=lengthlist1-lengthlist2;
+            int i=0;
+            while (i<difference){
+              nodeA=nodeA.next;
+              i++;
+            }
+        } else {
+            difference=lengthlist2-lengthlist1;
+            int i=0;
+            while (i<difference){
+               nodeB=nodeB.next;
+               i++;
+            }
+        }
+        //loop through list to find intersection
+        while(nodeA !=null && nodeB !=null){
+            if (nodeA ==nodeB){
+                return nodeA;
+            }
+            nodeA=nodeA.next;
+            nodeB=nodeB.next;
+        }
+        return null;
+    }
+}
