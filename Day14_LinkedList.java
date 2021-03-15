@@ -1,0 +1,45 @@
+
+
+
+Question: https://leetcode.com/explore/featured/card/march-leetcoding-challenge-2021/589/week-2-march-8th-march-14th/3671/
+
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode swapNodes(ListNode head, int k) {
+        
+        k = k-1;
+        
+        ListNode firstN = head;
+        
+        while(k>0){
+            firstN = firstN.next;
+            k--;
+        }
+        
+        ListNode f = firstN;
+        ListNode secondN = head;
+        
+        while(f.next != null){
+           secondN = secondN.next;
+            f = f.next;
+        }
+        
+        int temp = firstN.val;
+        firstN.val = secondN.val;
+        secondN.val = temp;
+        
+        return head;
+        
+    }
+}
