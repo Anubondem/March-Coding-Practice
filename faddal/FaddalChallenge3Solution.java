@@ -6,6 +6,7 @@ tip_percent = 15
 tax_percent = 8
 
 A tip of 15% * 100 = 15, and the taxes are 8% * 100 = 8. Print the value 123 and return from the function.*/
+package faddal;
 
 import java.io.*;
 import java.math.*;
@@ -19,7 +20,7 @@ public class FaddalChallenge3Solution {
 
     // Complete the solve function below.
     static void solve(double meal_cost, int tip_percent, int tax_percent) {
-        System.out.println(Math.round(meal_cost + (double)((meal_cost/100)*(tip_percent+tax_percent))));
+        System.out.println(Math.round(meal_cost + (double) ((meal_cost / 100) * (tip_percent + tax_percent))));
 
     }
 
