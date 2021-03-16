@@ -1,3 +1,4 @@
+package faddal;
 
 /**
  * Alice has n candies, where the ith candy is of type candyType[i]. Alice
